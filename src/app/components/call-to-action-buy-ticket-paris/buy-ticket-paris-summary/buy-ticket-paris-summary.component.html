@@ -1,0 +1,24 @@
+<p-dialog header="Header" closable="true" [modal]="true" [(visible)]="isOpen">
+  <ng-template pTemplate="header">
+    <div
+      class="inline-flex align-items-center justify-content-center gap-2 mx-auto"
+    >
+      <span class="font-bold white-space-nowrap">Commande confirmée !</span>
+    </div>
+  </ng-template>
+  <p class="m-0 text-center">
+    Vous recevrez bientôt
+    {{ quantity > 1 ? "vos " + quantity + " tickets" : "votre ticket" }} de
+    transport par mail.<br />
+    Montant total: {{ totalInDoge }} (soit {{ totalInUSD }})<br />
+    Merci de nous avoir fait confiance ET BON JO !!!
+  </p>
+  <ng-template pTemplate="footer">
+    <p-button
+      (click)="close()"
+      label="Ok"
+      styleClass="bg-blue-600 hover:bg-blue-800 rounded-lg text-white border-0 p-2"
+      icon="pi pi-check"
+    ></p-button>
+  </ng-template>
+</p-dialog>

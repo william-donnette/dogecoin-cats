@@ -1,0 +1,17 @@
+<header
+  class="fixed top-0 left-0 w-full h-20 bg-slate-800 p-5 gap-5 flex flex-row justify-between items-center"
+>
+  <p-menubar [model]="items">
+    <ng-template pTemplate="start">
+      <a routerLink="/" class="flex flex-row h-10 items-center gap-2">
+        <img
+          alt="Logo Dogecoin"
+          src="https://cryptologos.cc/logos/thumbs/dogecoin.png?v=031"
+          class="w-10 h-10"
+        />
+        <span class="text-gray-300 text-lg font-bolds">Dogecoin's App</span>
+      </a>
+    </ng-template>
+  </p-menubar>
+</header>
+<div class="h-32"></div>

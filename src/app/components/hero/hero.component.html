@@ -1,0 +1,53 @@
+<div class="w-full flex justify-center items-center py-20 px-5">
+  <div class="w-full grid grid-cols-2 max-w-2xl gap-5">
+    <div class="w-full flex flex-row justify-between items-center col-span-2">
+      <h1 class="text-white">Les Cours de la Bourse</h1>
+      <p-button
+        (click)="setAssets()"
+        label="Actualiser"
+        styleClass="bg-blue-600 hover:bg-blue-800 rounded-lg text-white border-0 p-2"
+        icon="pi pi-refresh"
+      ></p-button>
+    </div>
+    <p-card
+      *ngFor="let asset of assets"
+      [class.col-span-2]="true"
+      [class.md:col-span-1]="!asset.isFavorite"
+      [header]="asset.priceDisplay"
+    >
+      <ng-template pTemplate="header">
+        <div class="flex flex-col px-3 pt-4 gap-2 items-end">
+          <p
+            *ngIf="asset.isFavorite"
+            class="text-xs m-0 bg-blue-700 p-2 rounded"
+          >
+            Notre coup de coeur
+          </p>
+          <div class="flex flex-row items-center gap-2 w-full">
+            <div
+              class="h-10 w-10 bg-slate-700 rounded-full flex justify-center items-center"
+            >
+              <img
+                [alt]="asset.picture.alt"
+                [src]="asset.picture.src"
+                class="max-w-10 max-h-10 w-auto"
+              />
+            </div>
+            <p class="font-bold text-xl m-0">
+              {{ asset.display }}
+            </p>
+          </div>
+        </div>
+      </ng-template>
+      <p
+        [ngClass]="{
+          'text-red-500': asset.isDecreasing,
+          'text-green-500': asset.isIncreasing
+        }"
+        class="m-0"
+      >
+        {{ asset.changePercentOfTheLast24HoursDisplay }}
+      </p>
+    </p-card>
+  </div>
+</div>

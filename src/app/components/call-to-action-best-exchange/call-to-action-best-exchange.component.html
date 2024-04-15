@@ -1,0 +1,18 @@
+<div class="w-full flex justify-center items-center py-20 px-5">
+  <div class="max-w-2xl w-full grid gap-5">
+    <h2 class="text-white">Notre Recommandation</h2>
+    <p-panel *ngIf="exchange" header="WOW CEX !">
+      <p>
+        {{ exchange.name }} est la meilleure plateforme de Trading de
+        cryptomonnaies avec un volume de
+        {{ exchange.volumeOfTheLast24HoursDisplay }} depuis les 24 dernières
+        heures.
+      </p>
+      <a
+        [href]="exchange.url"
+        class="text-white bg-blue-700 hover:bg-blue-800 p-2 rounded no-underline"
+        >Accéder au Courtier</a
+      >
+    </p-panel>
+  </div>
+</div>
